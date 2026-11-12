@@ -690,17 +690,20 @@ function initChatbot() {
     bubble.innerHTML = formatChatMarkup(rawText);
 
     if (sender === 'bot') {
+      bubble.style.color = '#111111';
       state.lastBotMessageText = rawText;
       const meta = document.createElement('div');
       meta.className = 'msg-meta';
       
       const audioBtn = document.createElement('button');
       audioBtn.className = 'btn-msg-audio';
+      audioBtn.style.color = '#008532';
       audioBtn.innerHTML = state.lang === 'bn' ? '🔊 <span>পড়ে শুনুন</span>' : '🔊 <span>Listen</span>';
       audioBtn.onclick = () => speakText(rawText, audioBtn);
 
       const copyBtn = document.createElement('button');
       copyBtn.className = 'btn-msg-audio';
+      copyBtn.style.color = '#008532';
       copyBtn.innerHTML = state.lang === 'bn' ? '📋 <span>কপি</span>' : '📋 <span>Copy</span>';
       copyBtn.onclick = () => {
         copyToClipboard(rawText);
@@ -733,7 +736,7 @@ function initChatbot() {
     typingIndicator.id = 'typingIndicator';
     typingIndicator.innerHTML = `
       <div class="chat-avatar">প্র</div>
-      <div class="msg-bubble" style="font-style:italic; color:#555;">
+      <div class="msg-bubble" style="font-style:italic; color:#555555; background:#f0f7f3; border: 1px solid #c9e4d5;">
         ${state.lang === 'bn' 
           ? '🏛️ প্রজ্ঞা সরকারি তথ্যভান্ডার অনুসন্ধান করছে...' 
           : '🏛️ PROGNA is querying government repositories...'}
@@ -769,6 +772,10 @@ function initChatbot() {
     });
   });
 
+  // Style static welcome bubble buttons to official #008532
+  if (btnChatListen) btnChatListen.style.color = '#008532';
+  if (btnChatCopy) btnChatCopy.style.color = '#008532';
+
   // Listen to the last bot response
   btnChatListen?.addEventListener('click', () => {
     const textToSpeak = state.lastBotMessageText || aiKnowledgeBase[state.lang].default;
@@ -796,7 +803,7 @@ function formatChatMarkup(text) {
   escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
   // Markdown Links [title](url)
-  escaped = escaped.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #00A63E; text-decoration: underline; font-weight: 600;">$1</a>');
+  escaped = escaped.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #008532; text-decoration: underline; font-weight: 600;">$1</a>');
 
   // Line breaks
   escaped = escaped.replace(/\n/g, '<br/>');
@@ -1008,9 +1015,9 @@ function initSummarizer() {
 
     outputBox.style.display = 'block';
     outputText.innerHTML = `
-      <div style="padding: 20px; text-align: center; color: var(--govt-green-dark, #00A63E);">
+      <div style="padding: 20px; text-align: center; color: #008532;">
         <div style="font-size: 24px; animation: spin 1s infinite linear;">⚙️</div>
-        <div style="font-weight: 600; margin-top: 8px;">
+        <div style="font-weight: 600; margin-top: 8px; color: #008532;">
           ${state.lang === 'bn' 
             ? '🏛️ বিসিসি সার্বভৌম এআই ক্লাস্টারে নথি বিশ্লেষণ ও সারসংক্ষেপ প্রস্তুত হচ্ছে...' 
             : '🏛️ Analyzing document via BCC Sovereign AI Engine...'}
@@ -1041,11 +1048,11 @@ function initSummarizer() {
     state.nothiSigned = true;
     if (outputText && outputBox.style.display !== 'none') {
       const sigStamp = document.createElement('div');
-      sigStamp.style.cssText = 'margin-top: 15px; padding: 10px; background: #e8f5e9; border: 1px dashed #28a745; border-radius: 4px; font-size: 12.5px; color: #008532;';
+      sigStamp.style.cssText = 'margin-top: 15px; padding: 10px; background: #e8f5e9; border: 1px dashed #008532; border-radius: 4px; font-size: 12.5px; color: #008532;';
       sigStamp.innerHTML = `
-        <strong>✓ ডিজিটালি স্বাক্ষরিত ও অনুমোদিত (BCC Digital Token: 0x99A4-BD-2026)</strong><br>
-        স্বাক্ষরকারী: মো: সামিউল হক, যুগ্মসচিব (আইসিটি অনুবিভাগ)<br>
-        তারিখ ও সময়: ১২ নভেম্বর ২০২৬, সময়: ১৮:৪৫:০০
+        <strong style="color: #008532;">✓ ডিজিটালি স্বাক্ষরিত ও অনুমোদিত (BCC Digital Token: 0x99A4-BD-2026)</strong><br>
+        <span style="color: #008532;">স্বাক্ষরকারী: মো: সামিউল হক, যুগ্মসচিব (আইসিটি অনুবিভাগ)</span><br>
+        <span style="color: #008532;">তারিখ ও সময়: ১২ নভেম্বর ২০২৬, সময়: ১৮:৪৫:০০</span>
       `;
       outputText.appendChild(sigStamp);
       alert(state.lang === 'bn' ? '✍️ ডিজিটাল স্বাক্ষর সফলভাবে সংযুক্ত হয়েছে।' : '✍️ Digital signature successfully applied.');
@@ -1063,37 +1070,36 @@ function renderSummaryOutput(style, originalText, targetContainer) {
   if (style === 'bullets') {
     targetContainer.innerHTML = `
       <div class="summary-card-rendered">
-        <h4 style="color: #00A63E; margin-bottom: 8px;">
+        <h4 style="color: #008532; margin-bottom: 8px; font-weight: 700;">
           ${state.lang === 'bn' ? '📌 মূল সিদ্ধান্ত ও গুরুত্বপূর্ণ অ্যাকশন পয়েন্টসমূহ:' : '📌 Key Decisions & Action Items:'}
         </h4>
-        <ul style="margin-left: 20px; line-height: 1.7;">
-          <li><strong>${state.lang === 'bn' ? 'এআই ব্যবহারে অনুমোদন:' : 'AI Authorization:'}</strong> ${state.lang === 'bn' ? 'সরকারি কর্মকর্তাদের দাপ্তরিক খসড়া প্রস্তুত, নথি সারসংক্ষেপ ও তথ্য বিশ্লেষণে রাষ্ট্রীয় এআই ব্যবহারের প্রশাসনিক অনুমোদন প্রদান করা হয়েছে।' : 'Public servants are authorized to utilize sovereign AI tools for administrative drafting and summarization.'}</li>
-          <li><strong>${state.lang === 'bn' ? 'তথ্য নিরাপত্তা বিধিনিষেধ:' : 'Data Security Strictures:'}</strong> ${state.lang === 'bn' ? 'গোপনীয় সরকারি নথি বা নাগরিক ব্যক্তিগত তথ্য (PII) বিদেশি কোনো উন্মুক্ত পাবলিক ক্লাউড সিস্টেমে ইনপুট করা সম্পূর্ণ নিষিদ্ধ।' : 'Strict prohibition on entering confidential administrative records or citizen PII into unverified public cloud LLMs.'}</li>
-          <li><strong>${state.lang === 'bn' ? 'হিউম্যান-ইন-দ্য-লুপ বাধ্যবাধকতা:' : 'HITL Compliance:'}</strong> ${state.lang === 'bn' ? 'কোনো এআই খসড়া সরাসরি জারি করা যাবে না; দায়িত্বপ্রাপ্ত নির্বাহী কর্মকর্তার অনুপুঙ্খ যাচাই এবং ডিজিটাল স্বাক্ষর আবশ্যক।' : 'No AI generated draft may be issued without manual review and executive digital signature.'}</li>
-          <li><strong>${state.lang === 'bn' ? 'সার্বভৌম অবকাঠামো:' : 'Sovereign Hosting:'}</strong> ${state.lang === 'bn' ? 'কালিয়াকৈর জাতীয় ডেটা সেন্টারে সংরক্ষিত সার্বভৌম মডেল \'প্রজ্ঞা\' দ্বারা সকল সেবা পরিচালিত হবে।' : 'All operations remain localized in the Tier-IV National Data Center at Gazipur.'}</li>
+        <ul style="margin-left: 20px; line-height: 1.7; color: #222222;">
+          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'এআই ব্যবহারে অনুমোদন:' : 'AI Authorization:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'সরকারি কর্মকর্তাদের দাপ্তরিক খসড়া প্রস্তুত, নথি সারসংক্ষেপ ও তথ্য বিশ্লেষণে রাষ্ট্রীয় এআই ব্যবহারের প্রশাসনিক অনুমোদন প্রদান করা হয়েছে।' : 'Public servants are authorized to utilize sovereign AI tools for administrative drafting and summarization.'}</span></li>
+          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'তথ্য নিরাপত্তা বিধিনিষেধ:' : 'Data Security Strictures:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'গোপনীয় সরকারি নথি বা নাগরিক ব্যক্তিগত তথ্য (PII) বিদেশি কোনো উন্মুক্ত পাবলিক ক্লাউড সিস্টেমে ইনপুট করা সম্পূর্ণ নিষিদ্ধ।' : 'Strict prohibition on entering confidential administrative records or citizen PII into unverified public cloud LLMs.'}</span></li>
+          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'হিউম্যান-ইন-দ্য-লুপ বাধ্যবাধকতা:' : 'HITL Compliance:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'কোনো এআই খসড়া সরাসরি জারি করা যাবে না; দায়িত্বপ্রাপ্ত নির্বাহী কর্মকর্তার অনুপুঙ্খ যাচাই এবং ডিজিটাল স্বাক্ষর আবশ্যক।' : 'No AI generated draft may be issued without manual review and executive digital signature.'}</span></li>
+          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'সার্বভৌম অবকাঠামো:' : 'Sovereign Hosting:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'কালিয়াকৈর জাতীয় ডেটা সেন্টারে সংরক্ষিত সার্বভৌম মডেল \'প্রজ্ঞা\' দ্বারা সকল সেবা পরিচালিত হবে।' : 'All operations remain localized in the Tier-IV National Data Center at Gazipur.'}</span></li>
         </ul>
         <div style="margin-top: 15px; display: flex; gap: 10px;">
-          <button class="btn-msg-audio" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.innerText); alert('${state.lang === 'bn' ? 'কপি সম্পন্ন হয়েছে' : 'Copied to clipboard'}')">📋 ${state.lang === 'bn' ? 'সারসংক্ষেপ কপি করুন' : 'Copy Bullets'}</button>
+          <button class="btn-msg-audio" style="color: #008532;" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.innerText); alert('${state.lang === 'bn' ? 'কপি সম্পন্ন হয়েছে' : 'Copied to clipboard'}')">📋 ${state.lang === 'bn' ? 'সারসংক্ষেপ কপি করুন' : 'Copy Bullets'}</button>
         </div>
       </div>
     `;
   } else if (style === 'draft') {
     targetContainer.innerHTML = `
       <div style="font-family: Nikosh, Kalpurush, Arial, sans-serif; background: #fffdf7; padding: 18px; border: 1px solid #d4af37; border-radius: 4px; box-shadow: inset 0 0 5px rgba(0,0,0,0.05);">
-        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #00A63E; padding-bottom: 6px; margin-bottom: 12px;">
-          <strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ডি-নথি নোটশীট খসড়া</strong>
-          <span style="color: #DC2626; font-weight: 700;">স্মারক নং: ৫৬.০০.০৯২.২৬.এআই-নোট</span>
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #008532; padding-bottom: 6px; margin-bottom: 12px;">
+          <strong style="color: #008532; font-size: 14px;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ডি-নথি নোটশীট খসড়া</strong>
+          <span style="color: #DC2626; font-weight: 700; font-size: 13px;">স্মারক নং: ৫৬.০০.০৯২.২৬.এআই-নোট</span>
         </div>
-        <div style="line-height: 1.8; color: #222;">
-          <strong>১. বিষয়:</strong> সরকারি দপ্তরসমূহে রাষ্ট্রীয় কৃত্রিম বুদ্ধিমত্তা 'প্রজ্ঞা' ব্যবহারের নীতিমালা অনুমোদন ও বাস্তবায়ন সংক্রান্ত।<br/>
-          <strong>২. উপস্থাপন ও পটভূমি:</strong> উপর্যুক্ত বিষয়ে নথিভুক্ত সার্কুলারটি পর্যালোচনায় প্রতীয়মান হয় যে, দাপ্তরিক কার্যক্রমে স্বচ্ছতা ও গতিশীলতা বৃদ্ধির লক্ষ্যে আইসিটি বিভাগ কর্তৃক প্রস্তাবিত এআই গাইডলাইনটি সময়োপযোগী এবং জাতীয় সাইবার নিরাপত্তা নির্দেশিকা ২০২৬-এর সাথে পূর্ণ সঙ্গতিপূর্ণ।<br/>
-          <strong>৩. সিদ্ধান্ত প্রস্তাব:</strong> বর্ণিতাবস্থায়, প্রস্তাবিত নির্দেশনা অনুযায়ী সকল অধীনস্থ দপ্তর ও মাঠ প্রশাসনে সার্বভৌম এআই মডেল ব্যবহারের প্রশাসনিক মঞ্জুরি সদয় স্বাক্ষরের জন্য উপস্থাপন করা হলো।
+        <div style="line-height: 1.8; color: #222222;">
+          <strong style="color: #111111;">১. বিষয়:</strong> <span style="color: #222222;">সরকারি দপ্তরসমূহে রাষ্ট্রীয় কৃত্রিম বুদ্ধিমত্তা 'প্রজ্ঞা' ব্যবহারের নীতিমালা অনুমোদন ও বাস্তবায়ন সংক্রান্ত।</span><br/>
+          <strong style="color: #111111;">২. উপস্থাপন ও পটভূমি:</strong> <span style="color: #222222;">উপর্যুক্ত বিষয়ে নথিভুক্ত সার্কুলারটি পর্যালোচনায় প্রতীয়মান হয় যে, দাপ্তরিক কার্যক্রমে স্বচ্ছতা ও গতিশীলতা বৃদ্ধির লক্ষ্যে আইসিটি বিভাগ কর্তৃক প্রস্তাবিত এআই গাইডলাইনটি সময়োপযোগী এবং জাতীয় সাইবার নিরাপত্তা নির্দেশিকা ২০২৬-এর সাথে পূর্ণ সঙ্গতিপূর্ণ।</span><br/>
+          <strong style="color: #111111;">৩. সিদ্ধান্ত প্রস্তাব:</strong> <span style="color: #222222;">বর্ণিতাবস্থায়, প্রস্তাবিত নির্দেশনা অনুযায়ী সকল অধীনস্থ দপ্তর ও মাঠ প্রশাসনে সার্বভৌম এআই মডেল ব্যবহারের প্রশাসনিক মঞ্জুরি সদয় স্বাক্ষরের জন্য উপস্থাপন করা হলো।</span>
         </div>
-        <div style="margin-top: 25px; text-align: right;">
-          <div style="border-top: 1px dashed #777; display: inline-block; padding-top: 4px; text-align: center;">
-            <strong>(দায়িত্বপ্রাপ্ত নির্বাহী কর্মকর্তা)</strong><br/>
-            যুগ্মসচিব (প্রশাসন)<br/>
-            তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ
+        <div style="margin-top: 25px; text-align: right; color: #222222;">
+          <div style="border-top: 1px dashed #777; display: inline-block; padding-top: 4px; text-align: center; color: #222222;">
+            <strong style="color: #111111;">(দায়িত্বপ্রাপ্ত নির্বাহী কর্মকর্তা)</strong><br/>
+            <span style="color: #333333;">যুগ্মসচিব (প্রশাসন)<br/>তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ</span>
           </div>
         </div>
       </div>
@@ -1101,16 +1107,16 @@ function renderSummaryOutput(style, originalText, targetContainer) {
   } else {
     targetContainer.innerHTML = `
       <div class="summary-card-rendered">
-        <h4 style="color: #00A63E; margin-bottom: 8px;">
+        <h4 style="color: #008532; margin-bottom: 8px; font-weight: 700;">
           ${state.lang === 'bn' ? '📖 সহজ নাগরিক সারসংক্ষেপ:' : '📖 Plain Citizen Summary:'}
         </h4>
-        <p style="line-height: 1.7; color: #333;">
+        <p style="line-height: 1.7; color: #111111;">
           ${state.lang === 'bn' 
             ? 'এই সরকারি নির্দেশনার মূল বক্তব্য হলো—সরকারি দপ্তরগুলোতে কৃত্রিম বুদ্ধিমত্তার প্রয়োগ নিশ্চিত করে নাগরিক সেবা দ্রুততর ও সহজ করা। সরকারি কর্মকর্তাগণ দাপ্তরিক কাজে রাষ্ট্রীয় এআই সহকারী ব্যবহার করতে পারবেন, কিন্তু নাগরিকদের ব্যক্তিগত ও গোপনীয় তথ্য সম্পূর্ণ সুরক্ষিত রাখতে হবে এবং কোনো অবস্থাতেই যাচাইহীন এআই খসড়া জারি করা যাবে না। সকল ডেটা বাংলাদেশ জাতীয় ডেটা সেন্টারে সম্পূর্ণ নিরাপদ ও সংরক্ষিত থাকবে।'
             : 'The primary purpose of this circular is to accelerate public service delivery using sovereign Artificial Intelligence across government offices. Civil servants may utilize certified AI platforms for administrative efficiency while ensuring total protection of citizen privacy and compliance with data sovereignty protocols. No AI generated output can be published without human executive verification.'}
         </p>
         <div style="margin-top: 12px;">
-          <button class="btn-msg-audio" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.innerText); alert('${state.lang === 'bn' ? 'কপি সম্পন্ন হয়েছে' : 'Copied to clipboard'}')">📋 ${state.lang === 'bn' ? 'কপি করুন' : 'Copy Summary'}</button>
+          <button class="btn-msg-audio" style="color: #008532;" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.innerText); alert('${state.lang === 'bn' ? 'কপি সম্পন্ন হয়েছে' : 'Copied to clipboard'}')">📋 ${state.lang === 'bn' ? 'কপি করুন' : 'Copy Summary'}</button>
         </div>
       </div>
     `;
@@ -1156,9 +1162,9 @@ function initLandSurveySearch() {
 
     resultBox.style.display = 'block';
     resultContent.innerHTML = `
-      <div style="padding: 25px; text-align: center; color: var(--govt-green-dark, #00A63E);">
+      <div style="padding: 25px; text-align: center; color: #008532;">
         <div style="font-size: 26px; animation: spin 1s infinite linear;">🔍</div>
-        <div style="font-weight: 600; margin-top: 8px;">
+        <div style="font-weight: 600; margin-top: 8px; color: #008532;">
           ${state.lang === 'bn' 
             ? 'ভূমি রেকর্ড ও জরিপ অধিদপ্তরের ডিজিটাল খতিয়ান ডাটাবেসে অনুসন্ধান চলছে...' 
             : 'Querying DLRS Sovereign Land Records Database...'}
@@ -1187,64 +1193,64 @@ function renderLandQueryResult(surveyType, mouza, khatian, dag, container) {
   const fatherName = state.lang === 'bn' ? 'মরহুম আব্দুল কাদের' : 'Late Abdul Kader';
 
   container.innerHTML = `
-    <div class="land-porcha-card" style="background: #fff; border: 2px solid #00A63E; border-radius: 6px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <div class="land-porcha-card" style="background: #ffffff; border: 2px solid #008532; border-radius: 6px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
       
       <!-- Top Porcha Crest Strip -->
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #008532; padding-bottom: 10px; margin-bottom: 12px;">
         <div>
-          <div style="font-size: 11px; color: #666;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ভূমি মন্ত্রণালয়</div>
-          <h3 style="color: #00A63E; margin: 2px 0;">স্মার্ট ডিজিটাল খতিয়ান পর্চা (অনলাইন ভেরিফায়েড)</h3>
-          <span style="font-size: 12px; background: #e8f5e9; color: #00A63E; padding: 2px 8px; border-radius: 4px; font-weight: 600;">জরিপ: ${surveyTitle}</span>
+          <div style="font-size: 11px; color: #555555;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ভূমি মন্ত্রণালয়</div>
+          <h3 style="color: #008532; margin: 2px 0;">স্মার্ট ডিজিটাল খতিয়ান পর্চা (অনলাইন ভেরিফায়েড)</h3>
+          <span style="font-size: 12px; background: #e8f5e9; color: #008532; padding: 2px 8px; border-radius: 4px; font-weight: 600;">জরিপ: ${surveyTitle}</span>
         </div>
         <div style="text-align: right;">
-          <span style="display: inline-block; background: #28a745; color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 12px; font-weight: 600;">✓ বৈধ ও নিষ্কণ্টক</span>
-          <div style="font-size: 10.5px; color: #777; margin-top: 3px;">বারকোড নং: DLRS-2026-98124</div>
+          <span style="display: inline-block; background: #008532; color: #ffffff; font-size: 11px; padding: 4px 10px; border-radius: 12px; font-weight: 600;">✓ বৈধ ও নিষ্কণ্টক</span>
+          <div style="font-size: 10.5px; color: #666666; margin-top: 3px;">বারকোড নং: DLRS-2026-98124</div>
         </div>
       </div>
 
       <!-- Khatian Summary Table -->
-      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px; color: #000000;">
         <tr style="background: #f8f9fa;">
-          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%;"><strong>খতিয়ান নম্বর:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; color: #333333;"><strong>খতিয়ান নম্বর:</strong></td>
           <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; color: #DC2626; font-weight: bold;">${khatian}</td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%;"><strong>দাগ নম্বর:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; font-weight: bold;">${dag}</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; color: #333333;"><strong>দাগ নম্বর:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; font-weight: bold; color: #000000;">${dag}</td>
         </tr>
         <tr>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>মৌজা ও জে.এল নং:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;">${mouza}</td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>উপজেলা ও জেলা:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;">কালিয়াকৈর, গাজীপুর</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>মৌজা ও জে.এল নং:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #000000;">${mouza}</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>উপজেলা ও জেলা:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #000000;">কালিয়াকৈর, গাজীপুর</td>
         </tr>
         <tr style="background: #f8f9fa;">
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>মালিক / রায়তের নাম:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; font-weight: 600;">${ownerName}</td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>পিতা / স্বামীর নাম:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;">${fatherName}</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>মালিক / রায়তের নাম:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; font-weight: 600; color: #000000;">${ownerName}</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>পিতা / স্বামীর নাম:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #000000;">${fatherName}</td>
         </tr>
         <tr>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>জমির শ্রেণি:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;">নাল ও ভিটি</td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>জমির পরিমাণ:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #00A63E; font-weight: bold;">০.১২৫০ একর (১২.৫ শতক)</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>জমির শ্রেণি:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #000000;">নাল ও ভিটি</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>জমির পরিমাণ:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #008532; font-weight: bold;">০.১২৫০ একর (১২.৫ শতক)</td>
         </tr>
         <tr style="background: #f8f9fa;">
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>ই-নামজারি স্ট্যাটাস:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #28a745; font-weight: 600;">অনুমোদিত ও রেকর্ডভুক্ত</td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>খাজনা / কর স্ট্যাটাস:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd;">পরিশোধিত (১৪৩৩ সন পর্যন্ত)</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>ই-নামজারি স্ট্যাটাস:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #008532; font-weight: 600;">অনুমোদিত ও রেকর্ডভুক্ত</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #333333;"><strong>খাজনা / কর স্ট্যাটাস:</strong></td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #000000;">পরিশোধিত (১৪৩৩ সন পর্যন্ত)</td>
         </tr>
       </table>
 
       <!-- AI Lineage Verification Note -->
-      <div style="background: #eef7ee; border-left: 3px solid #28a745; padding: 10px; font-size: 12px; margin-bottom: 12px;">
-        🤖 <strong>এআই ধারাবাহিকতা বিশ্লেষণ (Chain of Title):</strong> সিএস থেকে আরএস জরিপ পর্যন্ত মালিকানার ধারাবাহিকতায় কোনো বিরোধ বা রেকর্ড জালিয়াতি পাওয়া যায়নি। বিরোধ ঝুঁকি স্কোর: <strong>০% (সম্পূর্ণ নিরাপদ)</strong>।
+      <div style="background: #eef7ee; border-left: 3px solid #008532; padding: 10px; font-size: 12px; margin-bottom: 12px; color: #222222;">
+        🤖 <strong>এআই ধারাবাহিকতা বিশ্লেষণ (Chain of Title):</strong> <span style="color: #222222;">সিএস থেকে আরএস জরিপ পর্যন্ত মালিকানার ধারাবাহিকতায় কোনো বিরোধ বা রেকর্ড জালিয়াতি পাওয়া যায়নি। বিরোধ ঝুঁকি স্কোর:</span> <strong style="color: #008532;">০% (সম্পূর্ণ নিরাপদ)</strong>।
       </div>
 
       <!-- Action Buttons -->
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button class="btn-govt-action" onclick="window.print()">🖨️ ${state.lang === 'bn' ? 'ডিজিটাল পর্চা প্রিন্ট' : 'Print Porcha'}</button>
-        <button class="btn-govt-action" style="background: #0d3b66;" onclick="window.open('https://mutation.land.gov.bd', '_blank')">🌐 ${state.lang === 'bn' ? 'ই-নামজারি আবেদন (land.gov.bd)' : 'Apply for e-Mutation'}</button>
+        <button class="btn-govt-action" style="background: #008532; color: #ffffff;" onclick="window.print()">🖨️ ${state.lang === 'bn' ? 'ডিজিটাল পর্চা প্রিন্ট' : 'Print Porcha'}</button>
+        <button class="btn-govt-action" style="background: #0d3b66; color: #ffffff;" onclick="window.open('https://mutation.land.gov.bd', '_blank')">🌐 ${state.lang === 'bn' ? 'ই-নামজারি আবেদন (land.gov.bd)' : 'Apply for e-Mutation'}</button>
       </div>
 
     </div>
@@ -1293,6 +1299,7 @@ function updateNoticeTabBadges() {
     const badge = tab.querySelector('.tab-count-badge');
     if (badge) {
       badge.innerText = state.lang === 'bn' ? toBanglaNumber(count) : count;
+      badge.style.color = '#008532';
     }
   });
 }
@@ -1545,12 +1552,31 @@ function initPdfModal() {
       const signEl = document.getElementById('pdfModalSignatory');
       const recEl = document.getElementById('pdfModalRecipients');
 
-      if (memoEl) memoEl.innerText = state.lang === 'bn' ? `স্মারক নং: ${data.memo}` : `Memo No: ${data.memoEn || data.memo}`;
-      if (dateEl) dateEl.innerText = state.lang === 'bn' ? `তারিখ: ${data.date}` : `Date: ${data.dateEn || data.date}`;
-      if (subEl) subEl.innerText = state.lang === 'bn' ? `বিষয়: ${data.subject}` : `Subject: ${data.subjectEn || data.subject}`;
-      if (bodyEl) bodyEl.innerText = data.body;
-      if (signEl) signEl.innerText = data.signatory;
-      if (recEl) recEl.innerText = data.recipient;
+      if (memoEl) {
+        memoEl.innerText = state.lang === 'bn' ? `স্মারক নং: ${data.memo}` : `Memo No: ${data.memoEn || data.memo}`;
+        memoEl.style.color = '#DC2626';
+        memoEl.style.fontWeight = 'bold';
+      }
+      if (dateEl) {
+        dateEl.innerText = state.lang === 'bn' ? `তারিখ: ${data.date}` : `Date: ${data.dateEn || data.date}`;
+        dateEl.style.color = '#555555';
+      }
+      if (subEl) {
+        subEl.innerText = state.lang === 'bn' ? `বিষয়: ${data.subject}` : `Subject: ${data.subjectEn || data.subject}`;
+        subEl.style.color = '#008532';
+      }
+      if (bodyEl) {
+        bodyEl.innerText = data.body;
+        bodyEl.style.color = '#222222';
+      }
+      if (signEl) {
+        signEl.innerText = data.signatory;
+        signEl.style.color = '#222222';
+      }
+      if (recEl) {
+        recEl.innerText = data.recipient;
+        recEl.style.color = '#333333';
+      }
 
       modal.classList.add('active');
     });
