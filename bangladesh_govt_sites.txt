@@ -1,0 +1,53 @@
+# List of 50 Available Bangladesh Government Websites
+# Verified active and reachable (HTTP 200)
+
+1. Bangladesh National Portal - https://bangladesh.gov.bd
+2. Prime Minister's Office - https://pmo.gov.bd
+3. Cabinet Division - https://cabinet.gov.bd
+4. Ministry of Public Administration - https://mopa.gov.bd
+5. Ministry of Foreign Affairs - https://mofa.gov.bd
+6. Finance Division, Ministry of Finance - https://mof.gov.bd
+7. Internal Resources Division (IRD) - https://ird.gov.bd
+8. National Board of Revenue (NBR) - https://nbr.gov.bd
+9. Bangladesh Bank (Central Bank) - https://www.bb.org.bd
+10. Ministry of Home Affairs - https://mha.gov.bd
+11. Bangladesh Police - https://www.police.gov.bd
+12. Law and Justice Division - https://lawjusticediv.gov.bd
+13. Supreme Court of Bangladesh - https://supremecourt.gov.bd
+14. Bangladesh Election Commission - https://ecs.gov.bd
+15. Bangladesh Public Service Commission (BPSC) - https://bpsc.gov.bd
+16. Secondary and Higher Education Division - https://shed.gov.bd
+17. Directorate of Secondary and Higher Education (DSHE) - https://dshe.gov.bd
+18. Directorate of Primary Education (DPE) - https://dpe.gov.bd
+19. Ministry of Primary and Mass Education - https://mopme.gov.bd
+20. Ministry of Health and Family Welfare - https://mohfw.gov.bd
+21. Directorate General of Health Services (DGHS) - https://dghs.gov.bd
+22. Ministry of Commerce - https://mincom.gov.bd
+23. Ministry of Agriculture - https://moa.gov.bd
+24. Department of Agricultural Extension (DAE) - https://dae.gov.bd
+25. Information and Communication Technology Division (ICTD) - https://ictd.gov.bd
+26. Bangladesh Computer Council (BCC) - https://bcc.gov.bd
+27. Department of Information and Communication Technology (DoICT) - https://doict.gov.bd
+28. Posts and Telecommunications Division - https://ptd.gov.bd
+29. Bangladesh Telecommunication Regulatory Commission (BTRC) - https://btrc.gov.bd
+30. Planning Division, Ministry of Planning - https://plandiv.gov.bd
+31. Bangladesh Bureau of Statistics (BBS) - https://bbs.gov.bd
+32. Road Transport and Highways Division - https://rthd.gov.bd
+33. Bangladesh Road Transport Authority (BRTA) - https://brta.gov.bd
+34. Ministry of Railways - https://mor.gov.bd
+35. Bangladesh Railway - https://railway.gov.bd
+36. Ministry of Civil Aviation and Tourism - https://mocat.gov.bd
+37. Power Division, Ministry of Power, Energy and Mineral Resources - https://powerdivision.gov.bd
+38. Bangladesh Power Development Board (BPDB) - https://bpdb.gov.bd
+39. Ministry of Environment, Forest and Climate Change - https://moef.gov.bd
+40. Department of Environment (DoE) - https://doe.gov.bd
+41. Ministry of Disaster Management and Relief - https://modmr.gov.bd
+42. Department of Disaster Management (DDM) - https://ddm.gov.bd
+43. Ministry of Land - https://minland.gov.bd
+44. Land Management Automation System (Land Portal) - https://land.gov.bd
+45. Ministry of Labour and Employment - https://mole.gov.bd
+46. Ministry of Social Welfare - https://msw.gov.bd
+47. Ministry of Women and Children Affairs - https://mowca.gov.bd
+48. Ministry of Cultural Affairs - https://moca.gov.bd
+49. Ministry of Industries - https://moind.gov.bd
+50. Department of Immigration and Passports - https://dip.gov.bd
