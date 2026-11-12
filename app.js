@@ -453,6 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLandSurveySearch();
   initNoticeTabs();
   initNationalAnthem();
+  initLeadershipTabs();
   initPoll();
   initPopupModal();
   initPdfModal();
@@ -1305,7 +1306,7 @@ function updateNoticeTabBadges() {
 }
 
 // ==========================================================================
-// 15. NATIONAL ANTHEM MELODIC SYNTHESIZER (WEB AUDIO API)
+// 15. NATIONAL ANTHEM (AUTHENTIC AUDIO & SYNTHESIZER FALLBACK)
 // ==========================================================================
 function initNationalAnthem() {
   const btn = document.getElementById('btnPlayAnthem');
@@ -1313,6 +1314,7 @@ function initNationalAnthem() {
   const progressFill = document.getElementById('anthemProgressFill');
   const lyricsBtn = document.getElementById('btnAnthemLyrics');
   const lyricsBox = document.getElementById('anthemLyricsBox');
+  const audioEl = document.getElementById('nationalAnthemAudio');
 
   // Toggle lyrics box
   lyricsBtn?.addEventListener('click', () => {
@@ -1324,9 +1326,65 @@ function initNationalAnthem() {
       : (state.lang === 'bn' ? '📜 গানের কথা দেখুন' : '📜 View Lyrics');
   });
 
+  if (audioEl) {
+    audioEl.addEventListener('play', () => {
+      state.isAnthemPlaying = true;
+      if (btn) {
+        btn.innerHTML = state.lang === 'bn' ? '⏹ <span>বন্ধ করুন</span>' : '⏹ <span>Stop Anthem</span>';
+      }
+      if (status) {
+        status.innerText = state.lang === 'bn' ? 'বাজছে: আমার সোনার বাংলা...' : 'Playing: Amar Shonar Bangla...';
+      }
+    });
+
+    audioEl.addEventListener('pause', () => {
+      state.isAnthemPlaying = false;
+      if (btn) {
+        btn.innerHTML = state.lang === 'bn' ? '▶ <span>বাজান</span>' : '▶ <span>Play</span>';
+      }
+      if (status) {
+        status.innerText = state.lang === 'bn' ? 'অডিও স্থগিত' : 'Audio paused';
+      }
+    });
+
+    audioEl.addEventListener('ended', () => {
+      state.isAnthemPlaying = false;
+      if (btn) {
+        btn.innerHTML = state.lang === 'bn' ? '▶ <span>বাজান</span>' : '▶ <span>Play</span>';
+      }
+      if (status) {
+        status.innerText = state.lang === 'bn' ? 'অফিসিয়াল রেকর্ডিং সমাপ্ত' : 'Official audio ended';
+      }
+      if (progressFill) progressFill.style.width = '0%';
+    });
+
+    audioEl.addEventListener('timeupdate', () => {
+      if (progressFill && audioEl.duration) {
+        const pct = Math.min(100, (audioEl.currentTime / audioEl.duration) * 100);
+        progressFill.style.width = `${pct}%`;
+      }
+    });
+  }
+
   if (!btn) return;
 
   btn.addEventListener('click', () => {
+    if (audioEl) {
+      if (audioEl.paused) {
+        audioEl.play().catch(err => {
+          console.warn('HTML5 Audio play blocked or failed, falling back to Web Audio API synthesis:', err);
+          if (state.isAnthemPlaying) {
+            stopAnthem();
+          } else {
+            playAnthemMelody();
+          }
+        });
+      } else {
+        audioEl.pause();
+      }
+      return;
+    }
+
     if (state.isAnthemPlaying) {
       stopAnthem();
     } else {
@@ -1367,7 +1425,7 @@ function initNationalAnthem() {
     state.isAnthemPlaying = true;
     btn.innerHTML = state.lang === 'bn' ? '⏹ <span>বন্ধ করুন</span>' : '⏹ <span>Stop Anthem</span>';
     if (status) {
-      status.innerText = state.lang === 'bn' ? 'বাজছে: আমার সোনার বাংলা...' : 'Playing: Amar Shonar Bangla...';
+      status.innerText = state.lang === 'bn' ? 'বাজছে: আমার সোনার বাংলা (সুর)...' : 'Playing: Amar Shonar Bangla (Melody)...';
     }
 
     // Melodic notes for "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি"
@@ -1437,6 +1495,41 @@ function initNationalAnthem() {
       stopAnthem();
     }, totalDuration);
   }
+}
+
+// ==========================================================================
+// 15.1 LEADERSHIP DIGNITARY TABS
+// ==========================================================================
+function initLeadershipTabs() {
+  const tabs = document.querySelectorAll('.leader-tab-btn');
+  const panels = document.querySelectorAll('.leader-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const leaderId = tab.getAttribute('data-leader');
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.style.background = 'transparent';
+        t.style.color = '#444444';
+        t.style.fontWeight = '600';
+        t.style.borderBottom = 'none';
+      });
+      tab.classList.add('active');
+      tab.style.background = '#ffffff';
+      tab.style.color = '#008532';
+      tab.style.fontWeight = '700';
+      tab.style.borderBottom = '2px solid #00A63E';
+
+      panels.forEach(panel => {
+        if (panel.id === `panel-${leaderId}`) {
+          panel.style.display = 'flex';
+        } else {
+          panel.style.display = 'none';
+        }
+      });
+    });
+  });
 }
 
 // ==========================================================================

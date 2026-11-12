@@ -2139,6 +2139,43 @@ button, input, select, textarea {
 }
 
 /* VIP Leadership Dignitary Card */
+.leader-tabs-nav {
+  display: flex;
+  background: #f0f0f0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.leader-tab-btn {
+  flex: 1;
+  padding: 7px 2px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #444444;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.leader-tab-btn:hover {
+  background: #e4e7eb;
+  color: #008532;
+}
+
+.leader-tab-btn.active {
+  background: #ffffff !important;
+  color: #008532 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #00A63E !important;
+}
+
+.national-anthem-audio {
+  width: 100%;
+  margin: 8px 0;
+  border-radius: var(--govt-radius-sm);
+  outline: none;
+}
+
 .person-profile-wrap {
   display: flex;
   flex-direction: column;
