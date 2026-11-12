@@ -453,7 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initLandSurveySearch();
   initNoticeTabs();
   initNationalAnthem();
-  initLeadershipTabs();
   initPoll();
   initPopupModal();
   initPdfModal();
@@ -1495,41 +1494,6 @@ function initNationalAnthem() {
       stopAnthem();
     }, totalDuration);
   }
-}
-
-// ==========================================================================
-// 15.1 LEADERSHIP DIGNITARY TABS
-// ==========================================================================
-function initLeadershipTabs() {
-  const tabs = document.querySelectorAll('.leader-tab-btn');
-  const panels = document.querySelectorAll('.leader-panel');
-  if (!tabs.length || !panels.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const leaderId = tab.getAttribute('data-leader');
-      tabs.forEach(t => {
-        t.classList.remove('active');
-        t.style.background = 'transparent';
-        t.style.color = '#444444';
-        t.style.fontWeight = '600';
-        t.style.borderBottom = 'none';
-      });
-      tab.classList.add('active');
-      tab.style.background = '#ffffff';
-      tab.style.color = '#008532';
-      tab.style.fontWeight = '700';
-      tab.style.borderBottom = '2px solid #00A63E';
-
-      panels.forEach(panel => {
-        if (panel.id === `panel-${leaderId}`) {
-          panel.style.display = 'flex';
-        } else {
-          panel.style.display = 'none';
-        }
-      });
-    });
-  });
 }
 
 // ==========================================================================
