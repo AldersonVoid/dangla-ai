@@ -464,6 +464,7 @@ if (typeof document !== 'undefined') {
     initPoll();
     initPopupModal();
     initPdfModal();
+    initGalleryLightbox();
     initVisitorCounter();
     initGlobalSearch();
     initLiveClock();
@@ -1695,6 +1696,50 @@ function initPdfModal() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       modal.classList.remove('active');
+    }
+  });
+}
+
+// ==========================================================================
+// 18.1 PHOTO GALLERY LIGHTBOX MODAL
+// ==========================================================================
+function initGalleryLightbox() {
+  const modal = document.getElementById('galleryModal');
+  const modalImg = document.getElementById('galleryModalImg');
+  const modalTitle = document.getElementById('galleryModalTitle');
+  const modalDate = document.getElementById('galleryModalDate');
+  const closeBtn = document.getElementById('btnGalleryClose');
+  const overlay = modal?.querySelector('.gallery-modal-overlay');
+
+  if (!modal || !modalImg) return;
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-img');
+      const isBn = state.lang === 'bn';
+      const title = item.getAttribute(`data-title-${state.lang}`) || item.getAttribute('data-title-bn');
+      const date = item.getAttribute(`data-date-${state.lang}`) || item.getAttribute('data-date-bn');
+
+      modalImg.src = src;
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalDate) modalDate.innerText = date;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    modalImg.src = '';
+    document.body.style.overflow = '';
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
     }
   });
 }
