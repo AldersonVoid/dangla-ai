@@ -8,29 +8,55 @@
    0. DESIGN TOKENS & COLOR PALETTE
    -------------------------------------------------------------------------- */
 :root {
-  /* Official Forest Green Palette */
-  --govt-green-dark: #10431c;
-  --govt-green-deep: #1b5e20;
-  --govt-green-primary: #006a4e;
-  --govt-green-mid: #008c3a;
-  --govt-green-light: #28a745;
+  /* Real Bangladesh National Portal Framework (NPF V2) Official Color Tokens */
+  --color-primary-bg: #00A63E;       /* The iconic, vibrant official government green */
+  --color-primary-light: #2DAB5B;    /* Lighter green for accents & borders */
+  --color-primary-dark: #008532;     /* Darker rich green for headers & utility */
+  --color-primary-deep: #006826;     /* Deep forest green for high contrast */
+  --color-primary-text: #ffffff;
+  --color-primary-subtle: #e8f7ee;
+  --color-primary-tint: #f2fbf5;
+
+  /* NPF Map Aliases */
+  --govt-green-primary: #00A63E;
+  --govt-green-dark: #008532;
+  --govt-green-deep: #006826;
+  --govt-green-mid: #00A63E;
+  --govt-green-light: #2DAB5B;
   --govt-green-accent: #2daf61;
-  --govt-green-subtle: #e8f5e9;
-  --govt-green-tint: #f0f7f3;
+  --govt-green-subtle: #e8f7ee;
+  --govt-green-tint: #f2fbf5;
 
-  /* National Flag & Administrative Red */
-  --govt-red: #c1282a;
-  --govt-red-bright: #dc3545;
-  --govt-red-flag: #f90101;
-  --govt-red-dark: #8b0000;
-  --govt-red-subtle: #fdf0f0;
+  /* Official Secondary / Flag Red */
+  --color-secondary-bg: #DC2626;
+  --color-secondary-light: #FEF2F2;
+  --color-secondary-dark: #B91C1C;
+  --color-secondary-text: #ffffff;
+  --govt-red: #DC2626;
+  --govt-red-bright: #EF4444;
+  --govt-red-flag: #DC2626;
+  --govt-red-dark: #B91C1C;
+  --govt-red-subtle: #FEF2F2;
 
-  /* Saffron Gold & National Insignia */
-  --govt-gold: #e89e00;
-  --govt-gold-bright: #ffd700;
-  --govt-gold-light: #ffc107;
-  --govt-gold-amber: #d97706;
-  --govt-gold-subtle: #fdf5e6;
+  /* Saffron Gold & Warning Orange */
+  --color-warning-bg: #FF6600;
+  --color-warning-text: #ffffff;
+  --color-gold: #FFD700;
+  --govt-gold: #FF6600;
+  --govt-gold-bright: #FFD700;
+  --govt-gold-light: #FFA500;
+  --govt-gold-amber: #D97706;
+  --govt-gold-subtle: #FFF7ED;
+
+  /* Official Normal Grays (The authentic NPF background system) */
+  --color-normal-bg: #ffffff;
+  --color-normal-light: #f0f0f0;
+  --color-normal-dark: #e0e0e0;      /* Authentic NPF footer background */
+  --color-normal-text: #000000;
+  --color-border-normal: #d0d0d0;
+  --color-border-dark: #909090;
+  --color-link-normal: #1568b2;
+  --color-link-dark: #1b81dd;
 
   /* Neutral & Structural Grays */
   --govt-bg-page: #f0f2f5;
@@ -416,11 +442,11 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   1. TOP NATIONAL & ACCESSIBILITY UTILITY BAR
+   1. TOP NATIONAL & ACCESSIBILITY UTILITY BAR (OFFICIAL NPF GREEN)
    ========================================================================== */
 .top-utility-bar {
-  background: #f8f9fa;
-  border-bottom: 1px solid var(--govt-border);
+  background: var(--color-primary-dark);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding: 6px 16px;
   font-size: 12.5px;
   display: flex;
@@ -429,11 +455,12 @@ button, input, select, textarea {
   flex-wrap: wrap;
   gap: 8px;
   z-index: 1002;
+  color: #ffffff;
 }
 
 .govt-republic-text {
   font-weight: 600;
-  color: #2b3035;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -441,7 +468,7 @@ button, input, select, textarea {
 }
 
 .national-portal-link {
-  color: var(--govt-green-primary);
+  color: #ffffff;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -449,29 +476,29 @@ button, input, select, textarea {
 }
 
 .national-portal-link:hover {
-  color: var(--govt-red);
+  color: #ffd700;
 }
 
 .top-bar-divider {
-  color: #c0c4c8;
+  color: rgba(255, 255, 255, 0.4);
   font-weight: normal;
   user-select: none;
 }
 
 .smart-bd-link {
-  color: #b36b00;
+  color: #ffffff;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #fff8e1;
-  padding: 1px 7px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 1px 8px;
   border-radius: var(--govt-radius-sm);
-  border: 1px solid #ffe082;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .date-display {
-  color: #495057;
+  color: #e8f5e9;
   font-size: 12px;
   font-weight: 500;
 }
@@ -491,55 +518,55 @@ button, input, select, textarea {
 
 .acc-label {
   font-size: 11.5px;
-  color: #666666;
+  color: #e8f5e9;
   margin-right: 2px;
   font-weight: 600;
 }
 
 .btn-acc {
-  background: #ffffff;
-  border: 1px solid #c2c7cc;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 2px 8px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   border-radius: var(--govt-radius-sm);
   transition: all 0.15s ease-in-out;
-  color: #333333;
+  color: #ffffff;
   line-height: 1.4;
 }
 
 .btn-acc:hover, .btn-acc.active {
-  background: var(--govt-green-primary);
-  color: #ffffff;
-  border-color: var(--govt-green-primary);
+  background: #ffffff;
+  color: var(--color-primary-dark);
+  border-color: #ffffff;
 }
 
 .btn-screen-reader {
-  background: #ffffff;
-  border: 1px solid #c2c7cc;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 2px 9px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   border-radius: var(--govt-radius-sm);
   transition: all 0.15s ease-in-out;
-  color: var(--govt-green-primary);
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
 .btn-screen-reader:hover {
-  background: var(--govt-green-primary);
-  color: #ffffff;
-  border-color: var(--govt-green-primary);
+  background: #ffffff;
+  color: var(--color-primary-dark);
+  border-color: #ffffff;
 }
 
 .lang-switch-btn {
-  background: linear-gradient(180deg, var(--govt-green-primary) 0%, var(--govt-green-deep) 100%);
+  background: var(--color-secondary-bg);
   color: #ffffff;
-  border: 1px solid var(--govt-green-dark);
+  border: 1px solid var(--color-secondary-dark);
   padding: 3px 12px;
   border-radius: var(--govt-radius-sm);
   cursor: pointer;
@@ -726,11 +753,11 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   3. STICKY DEEP GREEN SECRETARIAT PRIMARY NAVIGATION
+   3. OFFICIAL NPF VIBRANT GREEN SECRETARIAT PRIMARY NAVIGATION
    ========================================================================== */
 .site-nav {
-  background: linear-gradient(180deg, var(--govt-green-primary) 0%, var(--govt-green-dark) 100%);
-  border-bottom: 3px solid var(--govt-gold);
+  background: linear-gradient(180deg, var(--color-primary-bg) 0%, var(--color-primary-dark) 100%);
+  border-bottom: 4px solid #8bc643;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -828,8 +855,8 @@ button, input, select, textarea {
 .news-ticker-container {
   display: flex;
   align-items: center;
-  background: var(--govt-gold-subtle);
-  border-bottom: 1px solid #fae1b3;
+  background: #fef2f2;
+  border-bottom: 1px solid #fee2e2;
   overflow: hidden;
   height: 38px;
 }
@@ -910,10 +937,10 @@ button, input, select, textarea {
 .hero-slider-wrap {
   position: relative;
   height: 290px;
-  background: linear-gradient(135deg, #072a12 0%, #006a4e 55%, #013f2f 100%);
+  background: linear-gradient(135deg, #008532 0%, #00A63E 55%, #006826 100%);
   color: #ffffff;
   overflow: hidden;
-  border-bottom: 2px solid var(--govt-gold);
+  border-bottom: 3px solid #8bc643;
 }
 
 .hero-slider-wrap::before {
@@ -1204,8 +1231,8 @@ button, input, select, textarea {
 
 .ai-prompt-chip {
   background: #ffffff;
-  border: 1px solid #006a4e;
-  color: #006a4e;
+  border: 1px solid #00A63E;
+  color: #00A63E;
   padding: 4px 12px;
   border-radius: var(--govt-radius-pill);
   font-size: 12px;
@@ -1418,7 +1445,7 @@ button, input, select, textarea {
 }
 
 .nothi-header-bg {
-  background: linear-gradient(90deg, #10431c 0%, #006a4e 100%) !important;
+  background: linear-gradient(90deg, #008532 0%, #00A63E 100%) !important;
 }
 
 .nothi-title-left {
@@ -1979,7 +2006,7 @@ button, input, select, textarea {
 
 .media-thumbnail-placeholder {
   height: 130px;
-  background: linear-gradient(135deg, #10431c, #006a4e);
+  background: linear-gradient(135deg, #008532, #00A63E);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2278,7 +2305,7 @@ button, input, select, textarea {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #10431c;
+  background: #008532;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2436,23 +2463,24 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   14. STANDARDIZED NPF DARK FOOTER
+   14. STANDARDIZED NPF LIGHT GRAY FOOTER (AUTHENTIC a2i / NPF SPECIFICATION)
    ========================================================================== */
 .site-footer {
-  background: #202020;
-  color: #cccccc;
+  background: var(--color-normal-dark);
+  color: #333333;
   margin-top: auto;
   font-size: 13px;
-  border-top: 4px solid var(--govt-green-primary);
+  border-top: 5px solid var(--color-primary-bg);
+  position: relative;
 }
 
 .footer-top-strip {
-  background: #181818;
+  background: var(--color-normal-dark);
   padding: 12px 20px;
-  font-size: 12px;
-  border-bottom: 1px solid #333333;
+  font-size: 12.5px;
+  border-bottom: 1px dashed #cccccc;
   text-align: center;
-  color: #aaaaaa;
+  color: #555555;
   line-height: 1.5;
 }
 
@@ -2461,16 +2489,17 @@ button, input, select, textarea {
   grid-template-columns: 2fr 1.6fr 1.4fr;
   gap: 25px;
   padding: 25px 20px;
+  background-color: var(--color-normal-dark);
 }
 
 .footer-col-title {
-  color: #ffffff;
+  color: var(--color-primary-dark);
   font-size: 14.5px;
   font-weight: 700;
   margin-bottom: 12px;
   position: relative;
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--govt-green-primary);
+  border-bottom: 2px solid var(--color-primary-bg);
   display: inline-block;
 }
 
@@ -2479,23 +2508,28 @@ button, input, select, textarea {
 }
 
 .footer-nav-list li {
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+  border-bottom: 1px dotted #d0d0d0;
+  padding-bottom: 4px;
 }
 
 .footer-nav-list a {
-  color: #bbbbbb;
-  font-size: 12.5px;
-  transition: color 0.15s ease;
+  color: #333333;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .footer-nav-list a:hover {
-  color: #ffffff;
+  color: var(--color-primary-dark);
+  padding-left: 4px;
   text-decoration: underline;
 }
 
 .credits-block {
-  font-size: 12px;
+  font-size: 12.5px;
   line-height: 1.6;
+  color: #444444;
 }
 
 .credit-org-tags {
@@ -2506,9 +2540,9 @@ button, input, select, textarea {
 }
 
 .credit-tag {
-  background: #2b2b2b;
-  border: 1px solid #3d3d3d;
-  color: #81c784;
+  background: #ffffff;
+  border: 1px solid #c0c0c0;
+  color: var(--color-primary-dark);
   padding: 3px 9px;
   border-radius: var(--govt-radius-sm);
   font-size: 11px;
@@ -2516,20 +2550,21 @@ button, input, select, textarea {
 }
 
 .footer-bottom-bar {
-  background: #111111;
+  background: #d0d0d0;
+  color: #222222;
   padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 12px;
-  border-top: 1px solid #282828;
+  font-size: 12.5px;
+  border-top: 1px solid #bfbfbf;
 }
 
 .update-timestamp {
-  color: #ffb74d;
-  font-weight: 500;
+  color: var(--color-primary-dark);
+  font-weight: 600;
 }
 
 /* ==========================================================================

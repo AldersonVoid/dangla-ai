@@ -796,7 +796,7 @@ function formatChatMarkup(text) {
   escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
   // Markdown Links [title](url)
-  escaped = escaped.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #006a4e; text-decoration: underline; font-weight: 600;">$1</a>');
+  escaped = escaped.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #00A63E; text-decoration: underline; font-weight: 600;">$1</a>');
 
   // Line breaks
   escaped = escaped.replace(/\n/g, '<br/>');
@@ -1008,7 +1008,7 @@ function initSummarizer() {
 
     outputBox.style.display = 'block';
     outputText.innerHTML = `
-      <div style="padding: 20px; text-align: center; color: var(--govt-green-dark, #006a4e);">
+      <div style="padding: 20px; text-align: center; color: var(--govt-green-dark, #00A63E);">
         <div style="font-size: 24px; animation: spin 1s infinite linear;">⚙️</div>
         <div style="font-weight: 600; margin-top: 8px;">
           ${state.lang === 'bn' 
@@ -1041,7 +1041,7 @@ function initSummarizer() {
     state.nothiSigned = true;
     if (outputText && outputBox.style.display !== 'none') {
       const sigStamp = document.createElement('div');
-      sigStamp.style.cssText = 'margin-top: 15px; padding: 10px; background: #e8f5e9; border: 1px dashed #28a745; border-radius: 4px; font-size: 12.5px; color: #1b5e20;';
+      sigStamp.style.cssText = 'margin-top: 15px; padding: 10px; background: #e8f5e9; border: 1px dashed #28a745; border-radius: 4px; font-size: 12.5px; color: #008532;';
       sigStamp.innerHTML = `
         <strong>✓ ডিজিটালি স্বাক্ষরিত ও অনুমোদিত (BCC Digital Token: 0x99A4-BD-2026)</strong><br>
         স্বাক্ষরকারী: মো: সামিউল হক, যুগ্মসচিব (আইসিটি অনুবিভাগ)<br>
@@ -1063,7 +1063,7 @@ function renderSummaryOutput(style, originalText, targetContainer) {
   if (style === 'bullets') {
     targetContainer.innerHTML = `
       <div class="summary-card-rendered">
-        <h4 style="color: #006a4e; margin-bottom: 8px;">
+        <h4 style="color: #00A63E; margin-bottom: 8px;">
           ${state.lang === 'bn' ? '📌 মূল সিদ্ধান্ত ও গুরুত্বপূর্ণ অ্যাকশন পয়েন্টসমূহ:' : '📌 Key Decisions & Action Items:'}
         </h4>
         <ul style="margin-left: 20px; line-height: 1.7;">
@@ -1080,9 +1080,9 @@ function renderSummaryOutput(style, originalText, targetContainer) {
   } else if (style === 'draft') {
     targetContainer.innerHTML = `
       <div style="font-family: Nikosh, Kalpurush, Arial, sans-serif; background: #fffdf7; padding: 18px; border: 1px solid #d4af37; border-radius: 4px; box-shadow: inset 0 0 5px rgba(0,0,0,0.05);">
-        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #006a4e; padding-bottom: 6px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #00A63E; padding-bottom: 6px; margin-bottom: 12px;">
           <strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ডি-নথি নোটশীট খসড়া</strong>
-          <span style="color: #c1282a; font-weight: 700;">স্মারক নং: ৫৬.০০.০৯২.২৬.এআই-নোট</span>
+          <span style="color: #DC2626; font-weight: 700;">স্মারক নং: ৫৬.০০.০৯২.২৬.এআই-নোট</span>
         </div>
         <div style="line-height: 1.8; color: #222;">
           <strong>১. বিষয়:</strong> সরকারি দপ্তরসমূহে রাষ্ট্রীয় কৃত্রিম বুদ্ধিমত্তা 'প্রজ্ঞা' ব্যবহারের নীতিমালা অনুমোদন ও বাস্তবায়ন সংক্রান্ত।<br/>
@@ -1101,7 +1101,7 @@ function renderSummaryOutput(style, originalText, targetContainer) {
   } else {
     targetContainer.innerHTML = `
       <div class="summary-card-rendered">
-        <h4 style="color: #006a4e; margin-bottom: 8px;">
+        <h4 style="color: #00A63E; margin-bottom: 8px;">
           ${state.lang === 'bn' ? '📖 সহজ নাগরিক সারসংক্ষেপ:' : '📖 Plain Citizen Summary:'}
         </h4>
         <p style="line-height: 1.7; color: #333;">
@@ -1156,7 +1156,7 @@ function initLandSurveySearch() {
 
     resultBox.style.display = 'block';
     resultContent.innerHTML = `
-      <div style="padding: 25px; text-align: center; color: var(--govt-green-dark, #006a4e);">
+      <div style="padding: 25px; text-align: center; color: var(--govt-green-dark, #00A63E);">
         <div style="font-size: 26px; animation: spin 1s infinite linear;">🔍</div>
         <div style="font-weight: 600; margin-top: 8px;">
           ${state.lang === 'bn' 
@@ -1187,14 +1187,14 @@ function renderLandQueryResult(surveyType, mouza, khatian, dag, container) {
   const fatherName = state.lang === 'bn' ? 'মরহুম আব্দুল কাদের' : 'Late Abdul Kader';
 
   container.innerHTML = `
-    <div class="land-porcha-card" style="background: #fff; border: 2px solid #006a4e; border-radius: 6px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <div class="land-porcha-card" style="background: #fff; border: 2px solid #00A63E; border-radius: 6px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
       
       <!-- Top Porcha Crest Strip -->
-      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #10431c; padding-bottom: 10px; margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #008532; padding-bottom: 10px; margin-bottom: 12px;">
         <div>
           <div style="font-size: 11px; color: #666;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ভূমি মন্ত্রণালয়</div>
-          <h3 style="color: #006a4e; margin: 2px 0;">স্মার্ট ডিজিটাল খতিয়ান পর্চা (অনলাইন ভেরিফায়েড)</h3>
-          <span style="font-size: 12px; background: #e8f5e9; color: #006a4e; padding: 2px 8px; border-radius: 4px; font-weight: 600;">জরিপ: ${surveyTitle}</span>
+          <h3 style="color: #00A63E; margin: 2px 0;">স্মার্ট ডিজিটাল খতিয়ান পর্চা (অনলাইন ভেরিফায়েড)</h3>
+          <span style="font-size: 12px; background: #e8f5e9; color: #00A63E; padding: 2px 8px; border-radius: 4px; font-weight: 600;">জরিপ: ${surveyTitle}</span>
         </div>
         <div style="text-align: right;">
           <span style="display: inline-block; background: #28a745; color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 12px; font-weight: 600;">✓ বৈধ ও নিষ্কণ্টক</span>
@@ -1206,7 +1206,7 @@ function renderLandQueryResult(surveyType, mouza, khatian, dag, container) {
       <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px;">
         <tr style="background: #f8f9fa;">
           <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%;"><strong>খতিয়ান নম্বর:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; color: #c1282a; font-weight: bold;">${khatian}</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; color: #DC2626; font-weight: bold;">${khatian}</td>
           <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%;"><strong>দাগ নম্বর:</strong></td>
           <td style="padding: 6px 10px; border: 1px solid #ddd; width: 25%; font-weight: bold;">${dag}</td>
         </tr>
@@ -1226,7 +1226,7 @@ function renderLandQueryResult(surveyType, mouza, khatian, dag, container) {
           <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>জমির শ্রেণি:</strong></td>
           <td style="padding: 6px 10px; border: 1px solid #ddd;">নাল ও ভিটি</td>
           <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>জমির পরিমাণ:</strong></td>
-          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #006a4e; font-weight: bold;">০.১২৫০ একর (১২.৫ শতক)</td>
+          <td style="padding: 6px 10px; border: 1px solid #ddd; color: #00A63E; font-weight: bold;">০.১২৫০ একর (১২.৫ শতক)</td>
         </tr>
         <tr style="background: #f8f9fa;">
           <td style="padding: 6px 10px; border: 1px solid #ddd;"><strong>ই-নামজারি স্ট্যাটাস:</strong></td>
