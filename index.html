@@ -126,7 +126,21 @@
        3. OFFICIAL SECRETARIAT 9-SECTION NAVIGATION MENU
        ======================================================================== -->
   <nav class="site-nav" aria-label="সচিবালয় জাতীয় প্রধান মেনু">
-    <ul class="nav-menu-list">
+    
+    <!-- Mobile Navigation Toggle Bar (NPF Mobile Standard) -->
+    <div class="mobile-menu-bar">
+      <button class="mobile-menu-btn" id="btnMobileMenu" aria-expanded="false" aria-controls="mainNavMenu" aria-label="মেনু খুলুন">
+        <span class="hamburger-icon">☰</span>
+        <span class="menu-text" data-bn="মেনু" data-en="Menu">মেনু</span>
+      </button>
+      <div class="mobile-nav-chips">
+        <a href="#chat-section" class="mobile-quick-chip">🤖 <span data-bn="ডাংলা এআই" data-en="Dangla AI">ডাংলা এআই</span></a>
+        <a href="#notices" class="mobile-quick-chip">📢 <span data-bn="নোটিশ" data-en="Notices">নোটিশ</span></a>
+        <a href="#ai-services" class="mobile-quick-chip">⚡ <span data-bn="সেবা" data-en="Services">সেবা</span></a>
+      </div>
+    </div>
+
+    <ul class="nav-menu-list" id="mainNavMenu">
       
       <!-- 1. হোম -->
       <li class="nav-item active">
@@ -1432,6 +1446,11 @@
     </div>
   </div>
 </div>
+
+<!-- Mobile Floating Back to Top Button -->
+<button class="btn-back-to-top" id="btnBackToTop" aria-label="শীর্ষে যান" title="শীর্ষে যান">
+  <span>▲</span>
+</button>
 
 <!-- Interactive JavaScript -->
 <script src="app.js"></script>

@@ -454,6 +454,8 @@ if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initAccessibility();
+    initMobileNavigation();
+    initBackToTop();
     initHeroSlider();
     initNewsTicker();
     initChatbot();
@@ -1827,6 +1829,88 @@ function initGlobalSearch() {
       searchInput.value = transcript;
       executeSearch(transcript);
     });
+  });
+}
+
+// ==========================================================================
+// 20.1 MOBILE NAVIGATION & ACCORDION DROPDOWN ENGINE (NPF V2 MOBILE SPEC)
+// ==========================================================================
+function initMobileNavigation() {
+  const toggleBtn = document.getElementById('btnMobileMenu');
+  const navMenu = document.getElementById('mainNavMenu');
+  if (!toggleBtn || !navMenu) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const icon = toggleBtn.querySelector('.hamburger-icon');
+    if (icon) {
+      icon.innerText = isOpen ? '✕' : '☰';
+    }
+  });
+
+  // Handle dropdown clicks on mobile devices (accordion expand/collapse)
+  const dropdownParents = navMenu.querySelectorAll('.nav-item');
+  dropdownParents.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.nav-dropdown');
+    if (dropdown && link) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const wasOpen = item.classList.contains('dropdown-open');
+          dropdownParents.forEach(p => p.classList.remove('dropdown-open'));
+          if (!wasOpen) {
+            item.classList.add('dropdown-open');
+          }
+        }
+      });
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && navMenu.classList.contains('open')) {
+      if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+        navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        const icon = toggleBtn.querySelector('.hamburger-icon');
+        if (icon) icon.innerText = '☰';
+      }
+    }
+  });
+
+  // Close menu when clicking on an anchor that navigates to a section
+  navMenu.querySelectorAll('a').forEach(anchor => {
+    anchor.addEventListener('click', () => {
+      if (window.innerWidth <= 768 && !anchor.parentElement.querySelector('.nav-dropdown')) {
+        navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        const icon = toggleBtn.querySelector('.hamburger-icon');
+        if (icon) icon.innerText = '☰';
+      }
+    });
+  });
+}
+
+// ==========================================================================
+// 20.2 MOBILE FLOATING BACK-TO-TOP BUTTON
+// ==========================================================================
+function initBackToTop() {
+  const btn = document.getElementById('btnBackToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 280) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
