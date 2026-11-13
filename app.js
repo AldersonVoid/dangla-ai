@@ -4,7 +4,7 @@
  * 
  * Features:
  * 1. Seamless Bilingual Engine (বাংলা ⇄ English) with local persistence & Bengali calendar
- * 2. Conversational AI Assistant "ডংলা এআই" (Dangla AI) with comprehensive government knowledge base,
+ * 2. Conversational AI Assistant "ডাংলা এআই" (Dangla AI) with comprehensive government knowledge base,
  *    Web Speech API speech synthesis, speech recognition voice typing, and clipboard utilities
  * 3. D-Nothi / e-Nothi Document Summarizer & Secretariat Memo Drafter with workflow actions
  * 4. Smart Land & Survey (CS / SA / RS / BS / City) Search Simulator & Digital Porcha Generator
@@ -47,11 +47,11 @@ const state = {
 };
 
 // ==========================================================================
-// 2. COMPREHENSIVE KNOWLEDGE BASE FOR "Dangla AI" (ডংলা এআই) AI ASSISTANT
+// 2. COMPREHENSIVE KNOWLEDGE BASE FOR "Dangla AI" (ডাংলা এআই) AI ASSISTANT
 // ==========================================================================
 const aiKnowledgeBase = {
   bn: {
-    identity: `আমি গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডংলা এআই' (Dangla AI)। বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ কর্তৃক পরিচালিত এবং গাজীপুর টায়ার-৪ জাতীয় ডেটা সেন্টারে সংরক্ষিত এই প্ল্যাটফর্ম নাগরিক সেবা, সরকারি তথ্য ও জাতীয় নীতিমালা সংক্রান্ত সহায়তায় সার্বক্ষণিক নিয়োজিত।`,
+    identity: `আমি গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডাংলা এআই' (Dangla AI)। বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ কর্তৃক পরিচালিত এবং গাজীপুর টায়ার-৪ জাতীয় ডেটা সেন্টারে সংরক্ষিত এই প্ল্যাটফর্ম নাগরিক সেবা, সরকারি তথ্য ও জাতীয় নীতিমালা সংক্রান্ত সহায়তায় সার্বক্ষণিক নিয়োজিত।`,
 
     passport: `🏛️ **গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | ই-পাসপোর্ট (e-Passport) নির্দেশিকা**
 
@@ -165,7 +165,7 @@ const aiKnowledgeBase = {
 • 📞 **১০৯০ (1090):** দুর্যোগ ব্যবস্থাপনা ও বন্যা/ঘূর্ণিঝড় সতর্কবার্তা।
 • 📞 **৩৩৩১ (3331):** জাতীয় কৃত্রিম বুদ্ধিমত্তা ও সাইবার হেল্পডেস্ক।`,
 
-    default: `আসসালামু আলাইকুম। গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের রাষ্ট্রীয় এআই প্ল্যাটফর্ম 'ডংলা এআই' (Dangla AI) আপনার সেবায় নিয়োজিত।
+    default: `আসসালামু আলাইকুম। গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের রাষ্ট্রীয় এআই প্ল্যাটফর্ম 'ডাংলা এআই' (Dangla AI) আপনার সেবায় নিয়োজিত।
 
 আপনি সরকারের বিভিন্ন নাগরিক সেবা ও নীতিমালা সংক্রান্ত তথ্য জানতে পারেন:
 • **ই-পাসপোর্ট:** পাসপোর্ট আবেদন, সরকারি ফি তালিকা ও আঞ্চলিক অফিস সংক্রান্ত তথ্য।
@@ -325,7 +325,7 @@ const sampleCirculars = {
 ১. উপযুক্ত বিষয়ের প্রেক্ষিতে জানানো যাচ্ছে যে, প্রশাসনিক কার্যক্রমে গতিশীলতা ও সেবার গুণগত মান বৃদ্ধির লক্ষ্যে সরকারি কর্মকর্তাগণ দাপ্তরিক খসড়া প্রস্তুত, নথি সারসংক্ষেপ এবং তথ্য বিশ্লেষণে কৃত্রিম বুদ্ধিমত্তার সহায়তা গ্রহণ করতে পারবেন।
 ২. তবে জনস্বার্থ ও সাইবার নিরাপত্তা বিবেচনায় নিম্নোক্ত নির্দেশনাসমূহ কঠোরভাবে মান্য করতে হবে:
 (ক) 'অতি গোপনীয়' ও 'গোপনীয়' শ্রেণিভুক্ত কোনো সরকারি নথি, আর্থিক নিরীক্ষা কিংবা ব্যক্তিগত সংবেদনশীল তথ্য কোনো বাণিজ্যিক বা উন্মুক্ত পাবলিক ক্লাউড এআই সিস্টেমে ইনপুট করা যাবে না।
-(খ) দাপ্তরিক কাজের ক্ষেত্রে শুধুমাত্র বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ অনুমোদিত রাষ্ট্রীয় এআই মডেল 'ডংলা এআই (Dangla AI)' ব্যবহার করতে হবে।
+(খ) দাপ্তরিক কাজের ক্ষেত্রে শুধুমাত্র বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ অনুমোদিত রাষ্ট্রীয় এআই মডেল 'ডাংলা এআই (Dangla AI)' ব্যবহার করতে হবে।
 (গ) কোনো এআই জেনারেটেড খসড়া সরাসরি প্রজ্ঞাপন হিসেবে জারি করা যাবে না; দায়িত্বপ্রাপ্ত কর্মকর্তা কর্তৃক প্রতিটি লাইন যাচাই ও স্বাক্ষর আবশ্যক।`,
     en: `Government of the People's Republic of Bangladesh
 Information and Communication Technology Division
@@ -373,7 +373,7 @@ This is to notify the general public that an automated AI-driven land record val
 অফিস আদেশ
 বিষয়: জাতীয় সার্বভৌম লার্জ ল্যাঙ্গুয়েজ মডেল 'বন্ধন-বাংলা' উদ্ভাবনী প্রকল্পে নিরাপত্তা নিরীক্ষা পরিচালনা।
 
-রাষ্ট্রীয় এআই মডেল 'বন্ধন-বাংলা' এবং নাগরিক সহকারী 'ডংলা এআই (Dangla AI)'-এর অবকাঠামোগত নিরাপত্তা নিশ্চিতকরণে জাতীয় সাইবার নিরাপত্তা এজেন্সির সমন্বয়ে একটি উচ্চপর্যায়ের বিশেষজ্ঞ টাস্কফোর্স গঠন করা হলো। উক্ত কমিটি প্রতি মাসে গাজীপুরস্থ টায়ার-৪ জাতীয় ডেটা সেন্টারের অ্যালগরিদম ও ডেটা এনক্রিপশন অডিট সম্পন্ন করে মন্ত্রণালয়ে প্রতিবেদন দাখিল করবে।`,
+রাষ্ট্রীয় এআই মডেল 'বন্ধন-বাংলা' এবং নাগরিক সহকারী 'ডাংলা এআই (Dangla AI)'-এর অবকাঠামোগত নিরাপত্তা নিশ্চিতকরণে জাতীয় সাইবার নিরাপত্তা এজেন্সির সমন্বয়ে একটি উচ্চপর্যায়ের বিশেষজ্ঞ টাস্কফোর্স গঠন করা হলো। উক্ত কমিটি প্রতি মাসে গাজীপুরস্থ টায়ার-৪ জাতীয় ডেটা সেন্টারের অ্যালগরিদম ও ডেটা এনক্রিপশন অডিট সম্পন্ন করে মন্ত্রণালয়ে প্রতিবেদন দাখিল করবে।`,
     en: `Government of the People's Republic of Bangladesh
 Ministry of Posts, Telecommunications and Information Technology
 Cyber Security Wing
@@ -397,7 +397,7 @@ const memoDatabase = {
     dateEn: "12 November 2026",
     subject: "সরকারি দপ্তরসমূহে কৃত্রিম বুদ্ধিমত্তা (AI) প্রয়োগের জাতীয় নির্দেশিকা ২০২৬ সংক্রান্ত পরিপত্র।",
     subjectEn: "Circular on the National Guidelines for Artificial Intelligence (AI) Deployment in Public Offices 2026.",
-    body: "সরকারি কার্যক্রমে গতিশীলতা, শতভাগ স্বচ্ছতা, জবাবদিহিতা ও দ্রুত নাগরিক সেবা নিশ্চিতে জাতীয় এআই প্ল্যাটফর্ম 'ডংলা এআই (Dangla AI)' ব্যবহারের প্রশাসনিক অনুমোদন প্রদান করা হলো। সকল মন্ত্রণালয়, বিভাগ এবং আওতাধীন অধিদপ্তর/সংস্থাসমূহকে তাদের বিদ্যমান সেবাসমূহে এআই এপিআই সংযুক্ত করার অনুরোধ জানানো যাচ্ছে। উক্ত কার্যক্রমের আওতায় সংরক্ষিত সকল নাগরিক ডেটা বাংলাদেশ জাতীয় ডেটা সেন্টারে সম্পূর্ণ সুরক্ষিত থাকবে।",
+    body: "সরকারি কার্যক্রমে গতিশীলতা, শতভাগ স্বচ্ছতা, জবাবদিহিতা ও দ্রুত নাগরিক সেবা নিশ্চিতে জাতীয় এআই প্ল্যাটফর্ম 'ডাংলা এআই (Dangla AI)' ব্যবহারের প্রশাসনিক অনুমোদন প্রদান করা হলো। সকল মন্ত্রণালয়, বিভাগ এবং আওতাধীন অধিদপ্তর/সংস্থাসমূহকে তাদের বিদ্যমান সেবাসমূহে এআই এপিআই সংযুক্ত করার অনুরোধ জানানো যাচ্ছে। উক্ত কার্যক্রমের আওতায় সংরক্ষিত সকল নাগরিক ডেটা বাংলাদেশ জাতীয় ডেটা সেন্টারে সম্পূর্ণ সুরক্ষিত থাকবে।",
     signatory: "মো: সামিউল হক\nযুগ্মসচিব (আইসিটি ও এআই অনুবিভাগ)\nতথ্য ও যোগাযোগ প্রযুক্তি বিভাগ\nফোন: +৮৮০-২-৫৫০০০২২ | ইমেইল: js.ai@ictd.gov.bd",
     recipient: "১. মন্ত্রিপরিষদ সচিব, মন্ত্রিপরিষদ বিভাগ, বাংলাদেশ সচিবালয়, ঢাকা।\n২. মুখ্য সচিব, প্রধান উপদেষ্টার কার্যালয়, তেজগাঁও, ঢাকা।\n৩. সকল সিনিয়র সচিব / সচিব (সকল মন্ত্রণালয়/বিভাগ)।\n৪. মহাপরিচালক, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)।\n৫. প্রকল্প পরিচালক, এটুআই (a2i) প্রোগ্রাম, আগারগাঁও, ঢাকা।\n৬. সিস্টেম অ্যানালিস্ট, আইসিটি বিভাগ (ওয়েবসাইটে প্রকাশের অনুরোধসহ)।"
   },
@@ -586,7 +586,7 @@ function initAccessibility() {
 
   btnScreenReader?.addEventListener('click', () => {
     const announcement = state.lang === 'bn'
-      ? 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের জাতীয় কৃত্রিম বুদ্ধিমত্তা বাতায়নে আপনাকে স্বাগতম। এই পোর্টালে নাগরিক সহায়ক ডংলা এআই, ডি-নথি সারসংক্ষেপক এবং স্মার্ট ভূমি রেকর্ড যাচাই সেবা সক্রিয় রয়েছে।'
+      ? 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের জাতীয় কৃত্রিম বুদ্ধিমত্তা বাতায়নে আপনাকে স্বাগতম। এই পোর্টালে নাগরিক সহায়ক ডাংলা এআই, ডি-নথি সারসংক্ষেপক এবং স্মার্ট ভূমি রেকর্ড যাচাই সেবা সক্রিয় রয়েছে।'
       : 'Welcome to the National Artificial Intelligence Portal of the Government of the People\'s Republic of Bangladesh. Active services include Dangla AI Citizen Assistant, D-Nothi Summarizer, and Smart Land Verification.';
     speakText(announcement, btnScreenReader);
   });
@@ -672,7 +672,7 @@ function initNewsTicker() {
 }
 
 // ==========================================================================
-// 10. CITIZEN SERVICE AI ASSISTANT ("Dangla AI" / ডংলা এআই)
+// 10. CITIZEN SERVICE AI ASSISTANT ("Dangla AI" / ডাংলা এআই)
 // ==========================================================================
 function initChatbot() {
   const chatInput = document.getElementById('chatInput');
@@ -748,7 +748,7 @@ function initChatbot() {
       <div class="chat-avatar">ড</div>
       <div class="msg-bubble" style="font-style:italic; color:#555555; background:#f0f7f3; border: 1px solid #c9e4d5;">
         ${state.lang === 'bn' 
-          ? '🏛️ ডংলা এআই সরকারি তথ্যভান্ডার অনুসন্ধান করছে...' 
+          ? '🏛️ ডাংলা এআই সরকারি তথ্যভান্ডার অনুসন্ধান করছে...' 
           : '🏛️ Dangla AI is querying government repositories...'}
       </div>
     `;
@@ -838,7 +838,7 @@ function generateBotResponse(query) {
     q.includes('তোমার নাম') || q.includes('কার তৈরি') || 
     q.includes('কে বানিয়েছে') || q.includes('কে বানিয়েছে') || 
     q.includes('কে তৈরি করেছে') || q.includes('নির্মাতা') || 
-    q.includes('ডংলা কে') || q.includes('ডংলা এআই') || 
+    q.includes('ডাংলা কে') || q.includes('ডাংলা এআই') || 
     q.includes('who are you') || q.includes('who are u') || 
     q.includes('your name') || q.includes('who made you') || 
     q.includes('who created you') || q.includes('who built you') ||
@@ -849,15 +849,15 @@ function generateBotResponse(query) {
     if (state.lang === 'en' || isEnQuery) {
       return "I am 'Dangla AI', the sovereign citizen-service AI assistant of the Government of the People's Republic of Bangladesh. Operated by the Bangladesh Computer Council (BCC) and ICT Division, and hosted at the National Tier-IV Data Center in Gazipur, I am here to assist you with digital public services, citizen queries, and government information.";
     }
-    return "আমি গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডংলা এআই' (Dangla AI)। বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ কর্তৃক পরিচালিত এবং গাজীপুর টায়ার-৪ জাতীয় ডেটা সেন্টারে হোস্টকৃত এই ব্যবস্থা নাগরিক সেবা, সরকারি বিধিবিধান ও তথ্য প্রদানে সার্বক্ষণিক নিয়োজিত।";
+    return "আমি গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডাংলা এআই' (Dangla AI)। বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি) ও আইসিটি বিভাগ কর্তৃক পরিচালিত এবং গাজীপুর টায়ার-৪ জাতীয় ডেটা সেন্টারে হোস্টকৃত এই ব্যবস্থা নাগরিক সেবা, সরকারি বিধিবিধান ও তথ্য প্রদানে সার্বক্ষণিক নিয়োজিত।";
   }
 
   // Legacy name queries ('প্রজ্ঞা' / 'PROGNA')
   if (q.includes('progna') || q.includes('প্রজ্ঞা')) {
     if (state.lang === 'en' || isEnQuery) {
-      return "Previously this government AI platform was designated as 'PROGNA', which is now officially upgraded and operated as the sovereign citizen AI model 'Dangla AI' (ডংলা এআই).";
+      return "Previously this government AI platform was designated as 'PROGNA', which is now officially upgraded and operated as the sovereign citizen AI model 'Dangla AI' (ডাংলা এআই).";
     }
-    return "পূর্বে এই সরকারি এআই প্ল্যাটফর্মটির নাম 'প্রজ্ঞা' (PROGNA) ছিল, যা এখন মানোন্নয়ন করে রাষ্ট্রীয় সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডংলা এআই' (Dangla AI) নামে পরিচালিত হচ্ছে।";
+    return "পূর্বে এই সরকারি এআই প্ল্যাটফর্মটির নাম 'প্রজ্ঞা' (PROGNA) ছিল, যা এখন মানোন্নয়ন করে রাষ্ট্রীয় সার্বভৌম কৃত্রিম বুদ্ধিমত্তা সহকারী 'ডাংলা এআই' (Dangla AI) নামে পরিচালিত হচ্ছে।";
   }
 
   // 1. Hotlines & Emergency Services
@@ -1122,7 +1122,7 @@ function renderSummaryOutput(style, originalText, targetContainer) {
           <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'এআই ব্যবহারে অনুমোদন:' : 'AI Authorization:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'সরকারি কর্মকর্তাদের দাপ্তরিক খসড়া প্রস্তুত, নথি সারসংক্ষেপ ও তথ্য বিশ্লেষণে রাষ্ট্রীয় এআই ব্যবহারের প্রশাসনিক অনুমোদন প্রদান করা হয়েছে।' : 'Public servants are authorized to utilize sovereign AI tools for administrative drafting and summarization.'}</span></li>
           <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'তথ্য নিরাপত্তা বিধিনিষেধ:' : 'Data Security Strictures:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'গোপনীয় সরকারি নথি বা নাগরিক ব্যক্তিগত তথ্য (PII) বিদেশি কোনো উন্মুক্ত পাবলিক ক্লাউড সিস্টেমে ইনপুট করা সম্পূর্ণ নিষিদ্ধ।' : 'Strict prohibition on entering confidential administrative records or citizen PII into unverified public cloud LLMs.'}</span></li>
           <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'হিউম্যান-ইন-দ্য-লুপ বাধ্যবাধকতা:' : 'HITL Compliance:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'কোনো এআই খসড়া সরাসরি জারি করা যাবে না; দায়িত্বপ্রাপ্ত নির্বাহী কর্মকর্তার অনুপুঙ্খ যাচাই এবং ডিজিটাল স্বাক্ষর আবশ্যক।' : 'No AI generated draft may be issued without manual review and executive digital signature.'}</span></li>
-          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'সার্বভৌম অবকাঠামো:' : 'Sovereign Hosting:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'কালিয়াকৈর জাতীয় ডেটা সেন্টারে সংরক্ষিত সার্বভৌম মডেল \'ডংলা এআই\' দ্বারা সকল সেবা পরিচালিত হবে।' : 'All operations remain localized in the Tier-IV National Data Center at Gazipur.'}</span></li>
+          <li style="color: #222222;"><strong style="color: #111111;">${state.lang === 'bn' ? 'সার্বভৌম অবকাঠামো:' : 'Sovereign Hosting:'}</strong> <span style="color: #222222;">${state.lang === 'bn' ? 'কালিয়াকৈর জাতীয় ডেটা সেন্টারে সংরক্ষিত সার্বভৌম মডেল \'ডাংলা এআই\' দ্বারা সকল সেবা পরিচালিত হবে।' : 'All operations remain localized in the Tier-IV National Data Center at Gazipur.'}</span></li>
         </ul>
         <div style="margin-top: 15px; display: flex; gap: 10px;">
           <button class="btn-msg-audio" style="color: #008532;" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.innerText); alert('${state.lang === 'bn' ? 'কপি সম্পন্ন হয়েছে' : 'Copied to clipboard'}')">📋 ${state.lang === 'bn' ? 'সারসংক্ষেপ কপি করুন' : 'Copy Bullets'}</button>
@@ -1137,7 +1137,7 @@ function renderSummaryOutput(style, originalText, targetContainer) {
           <span style="color: #DC2626; font-weight: 700; font-size: 13px;">স্মারক নং: ৫৬.০০.০৯২.২৬.এআই-নোট</span>
         </div>
         <div style="line-height: 1.8; color: #222222;">
-          <strong style="color: #111111;">১. বিষয়:</strong> <span style="color: #222222;">সরকারি দপ্তরসমূহে রাষ্ট্রীয় কৃত্রিম বুদ্ধিমত্তা 'ডংলা এআই' ব্যবহারের নীতিমালা অনুমোদন ও বাস্তবায়ন সংক্রান্ত।</span><br/>
+          <strong style="color: #111111;">১. বিষয়:</strong> <span style="color: #222222;">সরকারি দপ্তরসমূহে রাষ্ট্রীয় কৃত্রিম বুদ্ধিমত্তা 'ডাংলা এআই' ব্যবহারের নীতিমালা অনুমোদন ও বাস্তবায়ন সংক্রান্ত।</span><br/>
           <strong style="color: #111111;">২. উপস্থাপন ও পটভূমি:</strong> <span style="color: #222222;">উপর্যুক্ত বিষয়ে নথিভুক্ত সার্কুলারটি পর্যালোচনায় প্রতীয়মান হয় যে, দাপ্তরিক কার্যক্রমে স্বচ্ছতা ও গতিশীলতা বৃদ্ধির লক্ষ্যে আইসিটি বিভাগ কর্তৃক প্রস্তাবিত এআই গাইডলাইনটি সময়োপযোগী এবং জাতীয় সাইবার নিরাপত্তা নির্দেশিকা ২০২৬-এর সাথে পূর্ণ সঙ্গতিপূর্ণ।</span><br/>
           <strong style="color: #111111;">৩. সিদ্ধান্ত প্রস্তাব:</strong> <span style="color: #222222;">বর্ণিতাবস্থায়, প্রস্তাবিত নির্দেশনা অনুযায়ী সকল অধীনস্থ দপ্তর ও মাঠ প্রশাসনে সার্বভৌম এআই মডেল ব্যবহারের প্রশাসনিক মঞ্জুরি সদয় স্বাক্ষরের জন্য উপস্থাপন করা হলো।</span>
         </div>
