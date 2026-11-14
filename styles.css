@@ -592,6 +592,29 @@ button, input, select, textarea {
   transform: translateY(-1px);
 }
 
+.top-github-btn {
+  background: #24292e;
+  color: #ffffff !important;
+  border: 1px solid #444d56;
+  padding: 3px 10px;
+  border-radius: var(--govt-radius-sm);
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.top-github-btn:hover {
+  background: #000000;
+  color: #58a6ff !important;
+  transform: translateY(-1px);
+}
+
 /* ==========================================================================
    2. MAIN SITE HEADER & BRANDING
    ========================================================================== */
@@ -3186,6 +3209,10 @@ button, input, select, textarea {
     padding: 4px 9px;
     font-size: 11px;
   }
+  .top-github-btn {
+    padding: 3px 8px;
+    font-size: 10.5px;
+  }
 
   /* 3. Official Header & Brand Block */
   .site-header {
@@ -3655,4 +3682,50 @@ button, input, select, textarea {
     box-shadow: none !important;
     padding: 0 !important;
   }
+}
+
+/* ==========================================================================
+   18. GITHUB REPOSITORY LINK & WIDGET STYLES
+   ========================================================================== */
+.nav-item-github .nav-link {
+  background: rgba(0, 0, 0, 0.18);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item-github .nav-link:hover {
+  background: #24292e !important;
+  color: #58a6ff !important;
+}
+
+.mobile-github-chip {
+  background: #24292e !important;
+  color: #ffffff !important;
+  border-color: #444d56 !important;
+}
+
+.btn-github-widget {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #24292e;
+  color: #ffffff !important;
+  padding: 8px 14px;
+  border-radius: var(--govt-radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease, transform 0.1s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-github-widget:hover {
+  background: #000000;
+  color: #58a6ff !important;
+  transform: translateY(-1px);
 }
